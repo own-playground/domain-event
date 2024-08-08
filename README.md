@@ -40,3 +40,13 @@ sequenceDiagram
     EventHandler->>OrderService: completeOrder(order)
     OrderService->>OrderService: 이메일 및 알림톡 전송 로그
 ```
+
+```
+\\\\\ output \\\\
+2024-08-09T00:33:42.905+09:00  INFO 43031 --- [nio-8080-exec-1] c.t.d.order.application.OrderService     : 1 ====== 주문을 생성합니다.
+2024-08-09T00:33:42.953+09:00  INFO 43031 --- [         task-1] c.t.d.order.application.OrderService     : 2 ====== 결제를 시작합니다. 주문 키: 04dcd0ab-f69c-4736-acad-e63b9172cfc0, 주문자 아이디: 1, 주문 상태: 주문 최초 생성
+2024-08-09T00:33:43.005+09:00  INFO 43031 --- [         task-1] c.t.d.order.application.OrderService     : 3 ====== 결제가 완료되었습니다.
+2024-08-09T00:33:43.010+09:00  INFO 43031 --- [         task-2] c.t.d.order.application.OrderService     : 4 ====== 주문이 완료되었습니다. 주문 상태: 결제 완료
+2024-08-09T00:33:43.010+09:00  INFO 43031 --- [         task-2] c.t.d.order.application.OrderService     : 5 ====== 이메일 전송
+2024-08-09T00:33:43.010+09:00  INFO 43031 --- [         task-2] c.t.d.order.application.OrderService     : 5 ====== 알림톡 전송
+```
